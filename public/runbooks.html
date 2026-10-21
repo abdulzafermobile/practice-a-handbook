@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Runbooks - Team Handbook</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card">
+    <h1>On-call runbooks</h1>
+    <h2>Website is down</h2>
+    <ol>
+      <li>curl the site from your laptop: timeout = firewall, refused = service</li>
+      <li>On the server: systemctl status nginx</li>
+      <li>Read: sudo tail -n 50 /var/log/nginx/error.log</li>
+    </ol>
+    <p><a href="index.html">Back to home</a></p>
+  </main>
+</body>
+</html>
