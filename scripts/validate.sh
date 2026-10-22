@@ -25,6 +25,12 @@ for page in "$DIR"/*.html; do
   done
 done
 
+# 5. No page is larger than 100 KB (catches pasted base64 images, logs, accidents)
+while IFS= read -r big; do
+  echo "TOO LARGE (>100 KB): $big"
+  errors=$((errors+1))
+done < <(find "$DIR" -name '*.html' -size +100k)
+
 if [ "$errors" -gt 0 ]; then
   echo "Validation FAILED with $errors problem(s)"
   exit 1
